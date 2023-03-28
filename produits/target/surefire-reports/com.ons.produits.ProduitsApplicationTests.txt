@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.ons.produits.ProduitsApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 9.044 s <<< FAILURE! - in com.ons.produits.ProduitsApplicationTests
+testFindProduit  Time elapsed: 0.051 s  <<< ERROR!
+java.util.NoSuchElementException: No value present
+	at com.ons.produits.ProduitsApplicationTests.testFindProduit(ProduitsApplicationTests.java:31)
+
+testUpdateProduit  Time elapsed: 0.007 s  <<< ERROR!
+java.util.NoSuchElementException: No value present
+	at com.ons.produits.ProduitsApplicationTests.testUpdateProduit(ProduitsApplicationTests.java:37)
+
