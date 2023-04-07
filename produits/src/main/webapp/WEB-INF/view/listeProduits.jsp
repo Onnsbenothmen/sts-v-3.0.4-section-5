@@ -1,41 +1,35 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template.html">
-<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<%@ page language="java" contentType="text/html; charset=windows-1256"
+ pageEncoding="windows-1256"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta charset="utf-8">
-<title>Liste des Produits</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+<title>Liste Produits</title>
 </head>
 <body>
-<div layout:fragment="Mycontent">
-<div class="container mt-5">
-<div class="card">
- <div class="card-header">
+ <h1 >
  Liste des Produits
- </div>
- <div class="card-body"> 
- <table class="table table-striped">
+ </h1> 
+ <table >
  <tr>
- <th>ID</th><th>Nom Produit</th><th>Prix</th>
- </tr> 
- <tr th:each="p:${produits.content}">
- <td th:text="${p.idProduit}"></td>
- <td th:text="${p.nomProduit}"></td>
- <td th:text="${p.prixProduit}"></td> 
- <td><a class="btn btn-danger" onclick="return confirm('Etes-vous sûr ?')"
- th:href="@{supprimerProduit(id=${p.idProduit}, 
-page=${currentPage},size=${size})}">Supprimer</a></td>
- </tr> 
+ <th>ID</th><th>Nom Produit</th><th>Prix</th><th>Date 
+Création</th><th>Suppression<th>Edition</th>
+ </tr>
+ <c:forEach items="${produits}" var="p">
+ <tr>
+ <td>${p.idProduit }</td>
+ <td>${p.nomProduit }</td>
+ <td>${p.prixProduit }</td>
+ <td><fmt:formatDate pattern="dd/MM/yyyy"
+value="${p.dateCreation}" /></td>
+ <td><a onclick="return confirm('Etes-vous sûr ?')"
+href="supprimerProduit?id=${p.idProduit }">Supprimer</a></td>
+ <td><a href="modifierProduit?id=${p.idProduit }">Edit</a></td>
+ </tr>
+ </c:forEach> 
  </table>
- <ul class="nav nav-pills">
- <li th:each="page,status:${pages}">
- <a th:class="${status.index==currentPage?'btn btn-primary':'btn' }"
- th:href="@{ ListeProduits(page=${status.index}, size=${size} ) }"
- th:text="${status.index }"></a>
- </li>
- </ul>
- </div>
-</div>
-</div>
-</div>
 </body>
 </html>

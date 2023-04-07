@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.0.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/> 
 	</parent>
 	<groupId>com.ons</groupId>
 	<artifactId>produits1</artifactId>
@@ -62,7 +62,6 @@
     		<groupId>jakarta.servlet.jsp.jstl</groupId>
     		<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 		</dependency>
-		
 		
 		<dependency>
 			<groupId>org.webjars</groupId>
